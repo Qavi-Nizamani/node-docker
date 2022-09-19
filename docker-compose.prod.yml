@@ -1,0 +1,8 @@
+version: '3'
+services:
+  express-app:
+    environment:
+      - NODE_ENV=production
+    # env_file:
+    # - ./.env
+    command: node index.js
