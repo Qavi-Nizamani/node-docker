@@ -1,5 +1,8 @@
 version: '3'
 services:
+  nginx:
+    ports:
+      - '3000:80'
   express-app:
     build:
       context: .
@@ -12,6 +15,8 @@ services:
       - NODE_ENV=development
       - MONGO_USER=qavi
       - MONGO_PASSWORD=mypassword
+      - SESSION_SECRET=secret
+
     command: npm run dev
   mongo:
     environment:

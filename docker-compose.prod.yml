@@ -1,12 +1,13 @@
 version: '3'
 services:
+  nginx:
+    ports:
+      - '80:80'
   express-app:
     build:
       context: .
       args:
         NODE_ENV: production
-    ports:
-      - '2000:3000'
     environment:
       - NODE_ENV=production
     # env_file:
