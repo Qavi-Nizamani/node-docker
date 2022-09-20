@@ -11,6 +11,7 @@ const {
 } = require('./config/config');
 const session = require('express-session');
 const redis = require('redis');
+const cors = require('cors');
 let RedisStore = require('connect-redis')(session);
 
 const postRouter = require('./routes/postRoutes');
@@ -41,6 +42,7 @@ const connectWithRetry = () => {
 connectWithRetry();
 
 app.enable('trust proxy');
+app.use(cors({}));
 app.use(
   session({
     store: new RedisStore({ client: redisClient }),
